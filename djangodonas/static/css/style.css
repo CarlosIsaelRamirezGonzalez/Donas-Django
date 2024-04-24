@@ -1,0 +1,376 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* end of imports */
+
+/* common styles */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffe5ec;
+}
+/* end of common styles */
+
+/* title */
+.title {
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    color: #fb6f92;
+    text-align: center;
+    align-items: center;
+}
+/* end of title */
+
+h2 {
+    text-align: center;
+    margin: 20px;
+    font-size: 2rem;
+}
+
+.titulo {
+    height: 100px;
+    width: 600px;
+    left: 35%;
+    top: 10px;
+    border-radius: 10px;
+    background-color: #fb6f92;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    color: #fcf6bd;
+}
+
+.titulo img {
+    height: 100px;
+    animation: animation-donut 5s linear infinite;
+}
+
+/* donut container */
+.panel-donut img {
+    max-width: 100%; /* Ajustar al ancho máximo del panel */
+    max-height: 180px; /* Limitar altura máxima */
+}
+
+/* Ajustar tamaño del texto dentro de los paneles */
+.panel-donut p {
+    font-size: 1.7rem; /* Ajustar tamaño del texto */
+}
+
+.donuts-container {
+    min-height: auto;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    max-width: 100%; /* Ajustar al ancho máximo del almacen */
+    overflow-x: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.panel-donut {
+    position: relative;
+    height: 300px; /* Ajustar altura */
+    width: 225px; /* Ajustar anchura */
+    margin: 10px; /* Añadir espacio entre los paneles */
+    background-color: rgb(248, 206, 199);
+    border-radius: 5rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #64113f;
+    transition: margin-bottom, transform, .8s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.panel-donut:hover {
+    margin-bottom: 5rem;
+}
+
+.item-donut {
+    position: absolute;
+    visibility: hidden;
+}
+
+.item-donut.activate {
+    visibility: visible;
+}
+
+.buy-btn {
+    height: 4rem;
+    width: 18rem;
+    border: .1px solid #aa8858;
+    margin-top: 4rem;
+    background-color: #d4a768;
+    color: #ba9156;
+    font-size: 1.7rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: color 0.6s, background-color 0.6s;
+}
+
+.buy-btn:hover {
+    background-color: #ba9156;
+    color: #d4a768;
+}
+
+.buy-btn:focus {
+    outline: none;
+}
+
+/* end of donut container */
+
+.almacen {
+    height: 400px;
+    width: auto;
+    margin: 40px;
+    padding: 10px;
+    top: 10px;
+    border-radius: 10px;
+    background-color: #f9acc3;
+    position: relative;
+    font-size: 2rem;
+    color: black;
+}
+
+.container-reposteros {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #e0b8c4;
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    margin: 40px;
+    padding: 10px;
+}
+
+.container-reposteros img {
+    height: 200px;
+    width: 200px;
+}
+
+.finanzas {
+    display: flex;
+    align-items: center;
+    background-color: #ce9dac;
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    margin: 40px;
+    padding: 10px;
+}
+
+.finanzas img {
+    margin: auto; /* Centrar horizontalmente */
+    height: 250px;
+    width: 500px;
+}
+
+@keyframes animation-donut {
+    0% {
+        transform: rotate(0deg); /* Comenzar desde 0 grados */
+    }
+    100% {
+        transform: rotate(360deg); /* Girar 360 grados */
+    }
+}
+
+/* login */
+.login {
+    height: 60vh;
+    width: 70vw;
+    max-width: 500px; /* Limitar el ancho máximo */
+    background: linear-gradient(to top, rgba(251, 111, 146, 1), rgba(251, 111, 146, .7)), url('../img/fondo-login.jpg') center no-repeat;
+    background-size: cover;
+    border-radius: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.login-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 100rem;
+    margin-top: 5rem;
+}
+
+/* end of login */
+
+/* signup */
+.signup {
+    height: 65vh;
+    width: 70vw;
+    max-width: 500px; /* Limitar el ancho máximo */
+    background: linear-gradient(to top, rgba(251, 111, 146, 1), rgba(251, 111, 146, .7)), url('../img/fondo-signup.jpg') center no-repeat;
+    background-size: cover;
+    border-radius: 2rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.signup-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 100rem;
+    margin-top: 3.5rem;
+}
+/* end of signup */
+
+/* forms  */
+.input-container {
+    position: relative;
+}
+
+.form {
+    margin-bottom: 15rem;
+    margin: 10px;
+    text-align: center;
+}
+
+.form i {
+    color: #cdb4db;
+    font-size: 1.5rem;
+}
+
+.form-input {
+    width: 22rem;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, .3);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #ffe5ec;
+    letter-spacing: .1rem;
+    outline: none;
+    border: .1rem solid #555;
+    border-radius: 10rem;
+    transition: background-color .3s;
+}
+
+.form-input:focus {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.form-input::placeholder {
+    color: #313131;
+}
+
+.form-input + i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-btn {
+    width: 25rem;
+    height: 3.5rem;
+    position: absolute;
+    cursor: pointer;
+    color: #ffd9da;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    border: .1px solid #ff88dc;
+    border-radius: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff88dc;
+    transition: all .8s;
+}
+
+.form-btn:hover {
+    background-color: #ffc6ff;
+    color: #64113f;
+}
+
+/* end of forms */
+
+/* responsive design */
+@media screen and (max-width: 768px) {
+    .titulo {
+        width: 90%;
+        left: 5%;
+    }
+
+    .login,
+    .signup {
+        width: 90vw;
+        top: 50%; /* Ajustar el posicionamiento vertical */
+        transform: translate(-50%, -50%);
+    }
+
+    .container-reposteros,
+    .finanzas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container-reposteros img,
+    .finanzas img {
+        width: 90%;
+        height: auto;
+        margin: 10px;
+    }
+
+    .donuts-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .panel-donut {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login,
+    .signup {
+        width: 90vw;
+        top: 50%; /* Ajustar el posicionamiento vertical */
+        transform: translate(-50%, -50%);
+    }
+
+    .form-input {
+        width: 18rem;
+    }
+
+    .form-btn {
+        width: 20rem;
+    }
+}
+/* end of responsive design  */

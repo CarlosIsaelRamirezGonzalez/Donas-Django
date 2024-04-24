@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/donut-logo.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Login - Donas</title>
+    
+    <style>
+        body {
+            background-color: #ffe5ec;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+   
+        .login {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-image {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: auto;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+      
+        .form-btn:hover {
+            background-color: #ff4f4f;
+        }
+
+        @media screen and (max-width: 600px) {
+            .login {
+                max-width: 300px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- title -->
+
+    <!-- end of title -->
+    <!-- login -->
+    <!-- login -->
+<div class="login">
+    <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
+    <div class="form">
+        <form action="/signin/" method="POST">
+            <div class="input-container">
+                <input class="form-input" placeholder="Username">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="input-container">
+                <input class="form-input" type="password" placeholder="Password">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <button class="form-btn" type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+    <div class="form">
+        <form action="/signup/" method="POST">
+            <button class="form-btn">Registrarse</button>
+        </form>
+    </div>
+</div>
+<!-- end of login -->
+
+    <!-- end of login -->
+</body>
+</html>
