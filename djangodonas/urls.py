@@ -18,5 +18,14 @@ from django.urls import path
 from task import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",views.helloworld)
+    path("", views.signup, name="home"),
+    path("signup/", views.signup, name="signup"),
+    path("registro/", views.registro, name="registro"),
+    path("registrar/", views.registrar, name="registrar"),
+    path("menu/", views.menu, name="menu"),
+        path("order/", views.order, name="order"),
+           path("Terminos/", views.Terminos, name="Terminos"),
+    path("logut/", views.signout, name="logout"),
+    path("registrardona/",views.registrardona),
+    # Cambiado a views.registrar
 ]

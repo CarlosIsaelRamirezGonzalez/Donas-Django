@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Orden
 
-# Register your models here.
+class TaskAdmin(admin.ModelAdmin):
+    readonly_fields = ('datecompleted',)
+
+admin.site.register(Orden, TaskAdmin)
