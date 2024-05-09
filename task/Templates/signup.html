@@ -1,0 +1,125 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/donut-logo.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Login - Donas</title>
+    
+    <style>
+        
+        body {
+            background-color: #ffe5ec;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+   
+        .login {
+            max-width: 300px;
+            
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-image {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: auto;
+        }
+
+        .form {
+            margin-top: 200px;
+        }
+
+        .input-container {
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 0px;
+            transition: background-color 0.3s ease;
+        }
+        .error-message {
+            color: red; /* Color rojo para el texto */
+            font-size: 16px; /* Tamaño de fuente */
+            background-color: #f8d7da; /* Color de fondo */
+            border: 1px solid #f5c6cb; /* Borde rojo */
+            padding: 10px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 10px; /* Margen inferior */
+        }
+        .form-btn:hover {
+            background-color: #ff4f4f;
+        }
+
+        @media screen and (max-width: 600px) {
+            .login {
+                max-width: 300px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- title -->
+
+    <!-- end of title -->
+    <!-- login -->
+    <!-- login -->
+    <div class="login">
+        <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
+      
+        <div class="form">
+            <form action="/signup/" method="POST">
+                {% csrf_token %}
+                <div class="input-container">
+                    <input class="form-input" name="username" placeholder="Username">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-container">
+                    <input class="form-input" name="password" type="password" placeholder="Password">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <button class="form-btn" type="submit">Iniciar Sesión</button>
+                
+            
+            </form>
+        </div>
+        <form action="/registrar/" method="POST">
+            {% csrf_token %}
+            <button class="form-btn"  type="submit" name="register_btn">Registrarse</button>
+        </form>
+        
+        </div>
+    </div>
+    
+<!-- end of login -->
+<div class="error-message">
+    {{ error }}
+</div>
+    <!-- end of login -->
+</body>
+</html>

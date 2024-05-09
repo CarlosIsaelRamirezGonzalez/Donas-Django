@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/donut-logo.jpg' %}">
+    <script src="https://kit.fontawesome.com/e8af35a10c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Sign Up - Donas</title>
+  
+    <style>
+        body {
+            background-color: #ffe5ec;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .error-message {
+            color: red; /* Color rojo para el texto */
+            font-size: 16px; /* Tamaño de fuente */
+            background-color: #f8d7da; /* Color de fondo */
+            border: 1px solid #f5c6cb; /* Borde rojo */
+            padding: 10px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 10px; /* Margen inferior */
+        }
+        .signup {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .signup-image {
+            display: block;
+            margin: 10px auto; /* Alineación central */
+            width: 200px;
+            height: auto;
+        }
+
+        .form {
+            margin-top: 20px; /* Espacio entre la imagen y el formulario */
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            position: relative; /* Posición relativa para los íconos */
+        }
+
+        .form-input {
+            width: calc(100% - 30px); /* Ancho ajustado para los íconos */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .fa-user,
+        .fa-lock {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-btn:hover {
+            background-color: #ff4f4f;
+        }
+    </style>
+</head>
+<body>
+    <!-- signup  -->
+    <div class="signup">
+        <img class="signup-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
+    
+        <div class="form">
+            <form action="/registro/" method="POST">
+                {% csrf_token %}
+                <div class="input-container">
+                    <input id="email-input" class="form-input" name="email" placeholder="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-container">
+                    <input name="username" class="form-input" placeholder="Username">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-container">
+                    <input name="password" class="form-input" type="password" placeholder="Password">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <button type="submit" class="form-btn">Registrarse</button>
+            </form>
+        </div>
+    </div>
+    <div class="error-message">
+        {{ error }}
+    </div>
+    <!-- end of signup -->
+    <script src="{% static 'script/xml.js' %}"></script>
+</body>
+</html>
