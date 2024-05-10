@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render,redirect
+from django.core.validators import validate_email
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
@@ -49,20 +50,21 @@ def signup(request):
                 })
 
 def registro(request):
-  if request.method == "GET":
+    if request.method == "GET":
         return render(request, "registro.html", {"form": UserCreationForm()})
-  elif request.method == "POST":
+    elif request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
         email=request.POST.get("email")
         if username and password and email:  # Verifica si username y password tienen valores
             try:
+                validate_email(email)
                 user = User.objects.create_user(username=username, password=password,email=email)
                 user.save()
-                return redirect("signup.html")
-            except IntegrityError:
+                return redirect("signup")
+            except:
                 return render(request,"registro.html",{
-                    "error":"Username already exits"
+                    "error":"Username already exits or email is wrong"
                 })
         else:
             return render(request,"registro.html",{
@@ -72,7 +74,10 @@ def registro(request):
 def registrar(request):
     return render (request,("registro.html"))
 def menu(request):
-     return render (request,("menu.html"))
+     quantity = CarritoItem.objects.count()
+     return render (request,"menu.html", {
+         'quantity': quantity,
+     })
 def signout(request):
       logout(request)
       return redirect("signup")

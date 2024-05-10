@@ -90,6 +90,9 @@
     <!-- login -->
     <!-- login -->
     <div class="login">
+        <div class="error-message">
+            {{ error }}
+        </div>
         <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
       
         <div class="form">
@@ -117,9 +120,7 @@
     </div>
     
 <!-- end of login -->
-<div class="error-message">
-    {{ error }}
-</div>
+
     <!-- end of login -->
 </body>
 </html>

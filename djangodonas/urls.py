@@ -33,7 +33,7 @@ urlpatterns = [
     path("registrardona/",registrardona),
     path("registrardonaBrownie/",registrardonaBrownie),
     path("registrardonacanela/",registrarcanela),
-    path("registrardonaclassic/",registrardonaclassic),
+    path("registrardonaclassic/",registrardonaclassic, name="registrardonaclassic"),
     path("Domicilio/",Domicilio),
     path('shopping/', views.shopping, name='shopping'),
     path('eliminar_producto/<int:item_id>/', views.eliminar_producto, name='eliminar_producto'),

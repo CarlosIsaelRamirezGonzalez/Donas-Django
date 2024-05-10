@@ -797,9 +797,9 @@
         <div class="order-container">
             <form action="/Domicilio/" method="POST" class="order-form" autocomplete="off">
                 {% csrf_token %}
-                <input type="text" name="Address" class="order-form-input" placeholder="Address">
-                <input type="text" name="State" class="order-form-input" placeholder="State">
-                <input type="text" name="Postal" class="order-form-input" placeholder="Postal Code">
+                <input type="text" name="Address" class="order-form-input" placeholder="Address" required>
+                <input type="text" name="State" class="order-form-input" placeholder="State" required>
+                <input type="text" name="Postal" class="order-form-input" placeholder="Postal Code" required >
                 
                 <button class="order-form-button">Done <i class="fa-solid fa-house"></i> </button>
             </form>
