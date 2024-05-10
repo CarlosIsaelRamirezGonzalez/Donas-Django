@@ -795,13 +795,12 @@
     <section class="order">
         <!-- Cambiar esto por una tabla -->
         <div class="order-container">
-            <form action="" class="order-form" autocomplete="off">
-                <input type="text" class="order-form-input" placeholder="Address">
-                <input type="text" class="order-form-input" placeholder="State">
-                <input type="text" class="order-form-input" placeholder="Postal Code">
-                <input type="text" class="order-form-input" placeholder="Card Number">
-                <input type="text" class="order-form-input" placeholder="CVC">
-                <input type="text" class="order-form-input" placeholder="Due Date">
+            <form action="/Domicilio/" method="POST" class="order-form" autocomplete="off">
+                {% csrf_token %}
+                <input type="text" name="Address" class="order-form-input" placeholder="Address">
+                <input type="text" name="State" class="order-form-input" placeholder="State">
+                <input type="text" name="Postal" class="order-form-input" placeholder="Postal Code">
+                
                 <button class="order-form-button">Done <i class="fa-solid fa-house"></i> </button>
             </form>
         </div>

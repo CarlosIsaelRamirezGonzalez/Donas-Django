@@ -393,7 +393,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
     
         background-color: #ffffff;
         
@@ -408,7 +408,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;}
+        justify-content: center;}
     
     .donuts-popup-question {
         font-family: 'Josefin Sans', sans-serif;
@@ -438,15 +438,12 @@
     .donuts-popup-confirm {
         height: 3rem;
         width: 12rem;
-    
+        margin-top: 20px; /* Agregar margen superior para separar el botón del resto del contenido */
         cursor: pointer;
-    
         border: .2rem solid #f34a74;
         background-color: #ff0a54;
-    
-    
     }
-    
+
     .donuts-header {
         font-size: 2.5rem ;
         font-weight: 400;
@@ -577,7 +574,51 @@
         background-color: #f7cad0;
         color: #ff99ac;
     }
+    .buy-btn-brownie{
+        height: 3rem;
+        width: 9rem;
     
+        border: none;
+        border-radius: .5rem;
+    
+        cursor: pointer;
+    
+        font-size: 1.5rem;
+        transition: background-color .5s, color .5s;
+    
+        background-color: #f7cad0;
+        color: #ff99ac;
+    }
+    .buy-btn-canela{
+        height: 3rem;
+        width: 9rem;
+    
+        border: none;
+        border-radius: .5rem;
+    
+        cursor: pointer;
+    
+        font-size: 1.5rem;
+        transition: background-color .5s, color .5s;
+    
+        background-color: #f7cad0;
+        color: #ff99ac;
+    }
+    .buy-btn-classic{
+        height: 3rem;
+        width: 9rem;
+    
+        border: none;
+        border-radius: .5rem;
+    
+        cursor: pointer;
+    
+        font-size: 1.5rem;
+        transition: background-color .5s, color .5s;
+    
+        background-color: #f7cad0;
+        color: #ff99ac;
+    }
     .buy-btn:hover {
         background-color: #ff99ac;
         color: #f7cad0;
@@ -796,14 +837,32 @@
 
     <section class="donuts">
         <h2 class="donuts-header">Donuts in stock</h2>
-       <form action="/registrardona/" method="POST">{% csrf_token %}
-        <div class="donuts-popup" id="popup">
-            <h2 class="donuts-popup-question">How many donuts do you want?</h2>
-            <input type="number" name="cantdonas"class="donuts-popup-number" min="1" max="100" value="0"placeholder="Number">
-            <input type="submit" class="donuts-popup-confirm" value="Confirm"/> 
-        </div>
-        <form/>
-
+        <form action="/registrardona/" method="POST" class="donuts-popup" id="popup1">
+            {% csrf_token %}
+            <h2 class="donuts-popup-question">¿Cuántas donas quieres?</h2>
+            <input type="number" name="cantdonas" class="donuts-popup-number" min="1" max="100" value="0" placeholder="Número">
+            <input type="submit" class="donuts-popup-confirm" value="Confirmar"/> 
+        </form>
+    
+        <!-- Formulario para donas de brownie -->
+        <form action="/registrardonaBrownie/" method="POST" class="donuts-popup" id="popup2">
+            {% csrf_token %}
+            <h2 class="donuts-popup-question">¿Cuántas donas quieres?</h2>
+            <input type="number" name="cantdonas" class="donuts-popup-number" min="1" max="100" value="0" placeholder="Número">
+            <input type="submit" class="donuts-popup-confirm" value="Confirmar"/> 
+        </form>
+        <form action="/registrardonacanela/" method="POST" class="donuts-popup" id="popup3">
+            {% csrf_token %}
+            <h2 class="donuts-popup-question">¿Cuántas donas quieres?</h2>
+            <input type="number" name="cantdonas" class="donuts-popup-number" min="1" max="100" value="0" placeholder="Número">
+            <input type="submit" class="donuts-popup-confirm" value="Confirmar"/> 
+        </form>
+        <form action="/registrardonaclassic/" method="POST" class="donuts-popup" id="popup4">
+            {% csrf_token %}
+            <h2 class="donuts-popup-question">¿Cuántas donas quieres?</h2>
+            <input type="number" name="cantdonas" class="donuts-popup-number" min="1" max="100" value="0" placeholder="Número">
+            <input type="submit" class="donuts-popup-confirm" value="Confirmar"/> 
+        </form>
         <div class="donuts-container">
 
             <div class="donut-card">
@@ -842,27 +901,28 @@
                         <p>Price: $15</p>
                     </div>
                     <div class="back-face-buttons">
-                        <button class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button class="buy-btn-brownie"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
+        
                 </div>
             </div>
-
+         
             <div class="donut-card">
                 <div class="front-face">
                     <div class="front-face-image">
                         <img src="{% static 'img/dona-maple.png' %}">
                     </div>
                     <div class="front-face-name">
-                        <h3>Maple donut</h3>
+                        <h3>Canela donut</h3>
                     </div>
                 </div>
                 <div class="back-face">
                     <div class="back-face-description">
                         <p>Delicious donut covered in maple syrup</p>
-                        <p>Price: $8</p>
+                        <p>Price: $9</p>
                     </div>
                     <div class="back-face-buttons">
-                        <button class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button class="buy-btn-canela"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </div>
@@ -879,10 +939,10 @@
                 <div class="back-face">
                     <div class="back-face-description">
                         <p>The house specialty, glazed donut</p>
-                        <p>Price: $9</p>
+                        <p>Price: $8</p>
                     </div>
                     <div class="back-face-buttons">
-                        <button class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button class="buy-btn-classic"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </div>
@@ -934,7 +994,63 @@
 
     </script>
 
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup1 = document.querySelector('#popup1');
+            const buyBtn1 = document.querySelectorAll('.buy-btn');
+            const confirmBtn1 = document.querySelector('.donuts-popup-confirm');
+        
+            buyBtn1.forEach(buy => {
+                buy.addEventListener('click', function() {
+                    popup1.classList.add('active');
+                });
+            });
+            
+            confirmBtn1.addEventListener('click', function() {
+                popup1.classList.remove('active');
+            });
+        
+            const popup2 = document.querySelector('#popup2');
+            const buyBtn2 = document.querySelectorAll('.buy-btn-brownie');
+            const confirmBtn2 = document.querySelector('.donuts-popup-confirm');
+        
+            buyBtn2.forEach(buy => {
+                buy.addEventListener('click', function() {
+                    popup2.classList.add('active');
+                });
+            });
+            
+            confirmBtn2.addEventListener('click', function() {
+                popup2.classList.remove('active');
+            });
+            const popup3 = document.querySelector('#popup3');
+            const buyBtn3 = document.querySelectorAll('.buy-btn-canela');
+            const confirmBtn3 = document.querySelector('.donuts-popup-confirm');
+        
+            buyBtn3.forEach(buy => {
+                buy.addEventListener('click', function() {
+                    popup3.classList.add('active');
+                });
+            });
+            
+            confirmBtn3.addEventListener('click', function() {
+                popup3.classList.remove('active');
+            });
+            const popup4 = document.querySelector('#popup4');
+            const buyBtn4 = document.querySelectorAll('.buy-btn-classic');
+            const confirmBtn4 = document.querySelector('.donuts-popup-confirm');
+        
+            buyBtn4.forEach(buy => {
+                buy.addEventListener('click', function() {
+                    popup4.classList.add('active');
+                });
+            });
+            
+            confirmBtn4.addEventListener('click', function() {
+                popup4.classList.remove('active');
+            });
+        });
+    </script>
     <!-- <div class="donuts-container">
         <div class="panel-donut" onclick="toggleActiveClass(this)">
             <div class="item-donut activate">
@@ -958,4 +1074,4 @@
         }
     </script>
 </body>
-</html>>
+</html>

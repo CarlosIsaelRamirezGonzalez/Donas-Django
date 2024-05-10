@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from task import views
 from task.views import registrardona
+from task.views import registrardonaBrownie
+from task.views import registrarcanela
+from task.views import registrardonaclassic,Domicilio
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.signup, name="home"),
@@ -28,5 +31,13 @@ urlpatterns = [
     path("Terminos/", views.Terminos, name="Terminos"),
     path("logut/", views.signout, name="logout"),
     path("registrardona/",registrardona),
+    path("registrardonaBrownie/",registrardonaBrownie),
+    path("registrardonacanela/",registrarcanela),
+    path("registrardonaclassic/",registrardonaclassic),
+    path("Domicilio/",Domicilio),
+    path('shopping/', views.shopping, name='shopping'),
+    path('eliminar_producto/<int:item_id>/', views.eliminar_producto, name='eliminar_producto'),
+    path('comprar/', views.comprar, name='comprar'),
+path('orders/', views.orders, name='orders'),
     # Cambiado a views.registrar
 ]
