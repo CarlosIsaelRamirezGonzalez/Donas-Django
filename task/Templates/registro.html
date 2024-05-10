@@ -84,6 +84,7 @@
         <img class="signup-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
     
         <div class="form">
+            {% csrf_token %}
             <form action="/registro/" method="POST">
                 {% csrf_token %}
                 <div class="input-container">
