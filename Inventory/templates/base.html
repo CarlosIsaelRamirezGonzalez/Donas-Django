@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static "css/inventory.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" src="{% static 'img/donut-logo.jpg' %}">
+    <script src="https://kit.fontawesome.com/e8af35a10c.js" crossorigin="anonym ous"></script>
+
+</head>
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+    
+        <input type="checkbox" class="navbar-checkbox-sidebar" hidden id="click">
+
+        <!-- sidebar -->
+        <div class="sidebar">
+
+            <label for="click">
+                <img src="./img/donut-menu.png" alt="" class="menu-icon">
+            </label>
+
+            <ul class="sidebar-icons-list">
+                <li>
+                    <a href="#" class="sidebar-social-link"><i class="fa-brands fa-square-youtube sidebar-icon-youtube"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-social-link"><i class="fa-brands fa-square-twitter sidebar-icon-twitter"></i></a>
+                </li>
+                <li>    
+                    <a href="#" class="sidebar-social-link"><i class="fa-brands fa-square-facebook sidebar-icon-facebook"></i></a>
+                </li>
+            </ul>
+
+            <div class="sidebar-year">
+                <p>2024</p>
+            </div>
+        </div>
+        <!-- end of sidebar -->
+
+        <!-- navigation -->
+        <nav class="navigation">
+            <h1 class="navigation-heading">La Dona Glaseada</h1>    
+            
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Home</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Orders</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Settings</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Help</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Log Out</a>
+                </li>
+            </ul>
+
+            
+            <div class="copyright">
+                <p>&copy; 2024. La Dona Glaseada. All Rights Reserved</p>
+            </div>
+        </nav>
+        <!-- end of navigation -->
+    </div>
+    <!-- end of navbar -->
+
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% if messages %}
+      {% for message in messages  %}
+          <div class="message {{ message.tags }} ">
+              {{message}}
+          </div>
+      {% endfor %}
+    {% endif %}
+</body>
+</html>
+

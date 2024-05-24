@@ -1,0 +1,22 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+  La Dona Glaseada - LogIn
+{% endblock title %}
+
+{% block content %}
+  <h1 class="login-title">Login</h1>
+  
+  <form method="post"class="login-form">
+      {% csrf_token %}
+      <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
+  
+      <i class="fa-solid fa-user login-form-icon"></i>
+      <input class="login-form-input" placeholder="Username">
+  
+      <i class="fa-solid fa-lock login-form-icon"></i>
+      <input class="login-form-input" type="password" placeholder="Password">
+          
+      <button class="login-form-btn">Enviar</button>
+  </form>
+{% endblock content %}

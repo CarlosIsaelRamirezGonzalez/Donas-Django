@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static "css/account.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" src="{% static 'img/donut-logo.jpg' %}">
+    <script src="https://kit.fontawesome.com/e8af35a10c.js" crossorigin="anonym ous"></script>
+
+</head>
+<body>
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        {% if messages %}
+          {% for message in messages  %}
+                <div class="message {{ message.tags }} ">
+                    {{message}}
+                </div>
+          {% endfor %}
+        {% endif %}
+</body>
+</html>
+

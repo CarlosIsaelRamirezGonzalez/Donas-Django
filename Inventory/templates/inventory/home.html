@@ -1,0 +1,56 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+  La Dona Glaseada - Home
+{% endblock title %}
+
+{% block content %}
+<h2 class="donuts-header">Donuts in stock</h2>
+
+<div class="donuts-popup" id="popup">
+    <i class="fa-solid fa-xmark donuts-popup-icon" id="close-donuts-popup"></i>
+    <h2 class="donuts-popup-question">How many donuts do you want?</h2>
+    <form id="popup-form" action="{% url 'shopping_cart:post_shopping' 0 %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="donut_id" id="donut-id-input">
+        <input type="number" name="quantity" class="donuts-popup-number" placeholder="Number" required>
+        <button type="submit" class="donuts-popup-confirm">Done</button>
+    </form>
+</div>
+
+<div class="donuts-container">
+
+    {% for donut in donuts %}
+      <div class="donut-card" data-donut-id="{{ donut.id }}">
+          <div class="front-face">
+              <div class="front-face-image">
+                <img src="{% static 'img/donut-' %}{{ donut.name }}.png" alt="Image of {{ donut.name }}">
+            </div>
+              <div class="front-face-name">
+                  <h3>{{ donut.name }}</h3>
+              </div>
+          </div>
+          <div class="back-face">
+              <div class="back-face-description">
+                  <p>{{ donut.description }}</p>
+                  <p>Price: {{ donut.price }}</p>
+              </div>
+              <div class="back-face-buttons">
+                  <button class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+              </div>
+          </div>
+      </div>
+    {% endfor %}
+    
+    <div class="shopping-cart">
+        <i class="fa-solid fa-cart-plus shoppin-cart-icon"></i>
+        <div class="shoppin-cart-number-items">
+            <h3 class="shopping-cart-number">{{ cart_shopping_number }}</h3>
+        </div>
+    </div>  
+
+</div>
+
+<script src="{% static 'js/card_flip.js' %}"></script>
+<script src="{% static 'js/donuts_popup.js' %}"></script>
+{% endblock content %}
