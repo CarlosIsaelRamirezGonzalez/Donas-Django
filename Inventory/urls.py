@@ -4,7 +4,7 @@ from . import views
 app_name = 'inventory'
 
 urlpatterns = [
-    path('/', views.SignUpView.as_view(), name='index'),
+    path('', views.index, name='index'),
     path('home/', views.HomeView.as_view(), name='home'),
-    path('terms/', views.terms, name="terms") # Sounds weird
+    path('terms_and_conditions/', views.terms_and_conditions, name="terms_and_conditions") # Sounds weird
 ]

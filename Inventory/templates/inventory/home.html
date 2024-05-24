@@ -36,7 +36,11 @@
                   <p>Price: {{ donut.price }}</p>
               </div>
               <div class="back-face-buttons">
-                  <button class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                <form action="{% url "shopping_cart:post_shopping" donut.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" min="1" placeholder="Quantity" required>
+                    <button type="submit" class="buy-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                </form>
               </div>
           </div>
       </div>

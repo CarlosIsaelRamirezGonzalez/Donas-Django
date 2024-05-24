@@ -10,22 +10,22 @@
       <img class="signup-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
       
       <div class="input-container">
-          <input class="form-input" placeholder="Email">
+          <input class="form-input" placeholder="Email" name="{{ form.email.name }}">
           <i class="fa-solid fa-envelope"></i>
       </div>
   
       <div class="input-container">
-          <input class="form-input" placeholder="Username">
+          <input class="form-input" placeholder="Username" name="{{ form.username.name }}">
           <i class="fa-solid fa-user"></i>
       </div>
   
       <div class="input-container">
-          <input class="form-input" type="password" placeholder="Password">
+          <input class="form-input" type="password" placeholder="Password" name="{{ form.password1.name }}">
           <i class="fa-solid fa-lock"></i>
       </div>
   
       <div class="input-container">
-          <input class="form-input" type="password" placeholder="Confirm Password">
+          <input class="form-input" type="password" placeholder="Confirm Password" name="{{ form.password2.name }}">
           <i class="fa-solid fa-lock"></i>
       </div>
   

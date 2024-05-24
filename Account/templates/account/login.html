@@ -11,11 +11,11 @@
       {% csrf_token %}
       <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
   
-      <i class="fa-solid fa-user login-form-icon"></i>
-      <input class="login-form-input" placeholder="Username">
+      <i class="fa-solid fa-envelope login-form-icon"></i>
+      <input class="login-form-input" placeholder="Email" name="{{ form.email.name }}">
   
       <i class="fa-solid fa-lock login-form-icon"></i>
-      <input class="login-form-input" type="password" placeholder="Password">
+      <input class="login-form-input" type="password" placeholder="Password" name="{{ form.password.name }}">
           
       <button class="login-form-btn">Enviar</button>
   </form>
