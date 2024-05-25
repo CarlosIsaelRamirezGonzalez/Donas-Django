@@ -54,3 +54,6 @@ class LoginView(FormView):
 def logout_view(request):
     logout(request)
     return redirect('index')    
+
+def index(request):
+    return render(request, 'inventory/index.html')

@@ -14,9 +14,5 @@ class HomeView(ListView):
     paginate_by = 10
     template_name = 'inventory/home.html'
     
-    
-def index(request):
-    return render(request, 'inventory/index.html')
-
 def terms_and_conditions(request):
     return render(request, 'inventory/terms_and_conditions.html')

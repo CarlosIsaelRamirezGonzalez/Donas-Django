@@ -5,4 +5,5 @@ from Inventory.models import Donut
 @require_POST
 def post_shopping(request, donut_id):
     donut = get_object_or_404(Donut, id=donut_id)
-    
+    if donut:
+        pass

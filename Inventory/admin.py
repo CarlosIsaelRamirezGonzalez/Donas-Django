@@ -2,6 +2,7 @@ from django.contrib import admin
 from rangefilter.filters import NumericRangeFilter
 from .models import Donut
 
+
 @admin.register(Donut)
 class DonutAdmin(admin.ModelAdmin):
     list_display = ['name', 'quantity', 'price', 'description']
