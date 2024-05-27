@@ -9,7 +9,12 @@ from django.contrib.auth.models import User
 class Order(models.Model):
     address = models.CharField(max_length=350)
     quantity = models.PositiveIntegerField()
-    donut = models.ForeignKey(Donut, 
+    delivered = models.BooleanField(default=False)
+    user = models.ForeignKey(User, 
+                             on_delete=models.CASCADE,
+                             related_name='orders',
+                             null=True) # user.orders
+    donut = models.ForeignKey(Donut,   
                               on_delete=models.CASCADE,
                               related_name='orders') # donut.orders
     
@@ -24,6 +29,7 @@ class ShoppingCart(models.Model):
                               on_delete=models.CASCADE,
                               related_name='shopping_cart') # donut.shopping_cart
     quantity = models.PositiveIntegerField()
+    suggestion = models.CharField(max_length=450, null=True)
     bill = models.DecimalField(max_digits=5, decimal_places=2)
     
     def __str__(self):

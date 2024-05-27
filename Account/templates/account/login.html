@@ -1,4 +1,5 @@
-{% extends 'account/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
   La Dona Glaseada - LogIn
@@ -9,7 +10,7 @@
   
   <form method="post"class="login-form">
       {% csrf_token %}
-      <img class="login-image" src="{% static 'img/donut-logo.jpg' %}" alt="">
+      <img class="login-image" src="{% static 'images/donut-logo.jpg' %}" alt="">
   
       <i class="fa-solid fa-envelope login-form-icon"></i>
       <input class="login-form-input" placeholder="Email" name="{{ form.email.name }}">

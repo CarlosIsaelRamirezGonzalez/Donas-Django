@@ -45,7 +45,7 @@ class LoginView(FormView):
             return self.render_to_response(self.get_context_data(form=form))
     
     def form_invalid(self, form):
-        error_message = "The data provides is not valid."
+        error_message = "The data provided is not valid."
         
         messages.error(self.request, error_message)
         return self.render_to_response(self.get_context_data(form=form))
@@ -56,4 +56,4 @@ def logout_view(request):
     return redirect('index')    
 
 def index(request):
-    return render(request, 'inventory/index.html')
+    return render(request, 'account/index.html')

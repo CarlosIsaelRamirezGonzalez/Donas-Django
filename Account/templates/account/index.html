@@ -1,9 +1,45 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
   La Dona Glaseada - Index
 {% endblock title %}
 
 {% block content %}
+<div class="navbar">    
+    <div class="navbar-left-side">
+        <img src="{% static 'images/navbar_logo.png' %}" class="navbar-img">
+    </div>
+    <div class="navbar-right-side">
+        <button class="navbar-button" onclick="redirectToPage('account/login/')" >Login</button>
+        <button class="navbar-button" onclick="redirectToPage('auth/signup/')" >SignUp</button>
+    </div>
+</div>
 
+<div class="notice">
+    <h3>Now with more than 10 branches throughout the country</h3>
+</div>
+
+<div class="content-info">
+    
+    <div class="pastry-chefs">
+        <div class="pastry-chef-bibliography">
+            <img src="{% static 'images/Pastelero_1.jpeg' %}" class="pastry-chef-bibliography-img">
+            <p class="pastry-chef-bibliography-history">Chef Carlos, better nicknamed "El Inge" was born in 2004 in the capital of French cuisine, Paris, there at just 10 years old he made his first cake, which renowned pastry chefs described as "Ingenious", his beautiful creations delight the more eccentric palates, in 2024, after winning 3 Michelin stars, together with his two companions he decided to open his own cake shop, and call it "The Glazed Donut"</p>
+        </div>        
+        <div class="pastry-chef-bibliography">
+            <img src="{% static 'images/Pastelero_2.jpeg' %}" class="pastry-chef-bibliography-img">
+            <p class="pastry-chef-bibliography-history">The great chef "Vale" known for making the best red velvet this world has ever seen, was born in 2005 and at only 13 years old she conquered the hearts of thousands of diners by preparing the best cakes that have ever been seen, with her knowledge has decided to share its great flavor with the world, and open its own pastry shop, which with the help of two very well-known chefs, founded it, thus giving birth to "The Glazed Donut."</p>
+        </div>        
+        <div class="pastry-chef-bibliography">
+            <img src="{% static 'images/Pastelero_3.jpeg' %}" class="pastry-chef-bibliography-img">
+            <p class="pastry-chef-bibliography-history">The eccentric chef "Emmanuel" has hardly been seen in the pastry shops, since he is very closed to the cameras, only this photo of him is known, he is the best chef preparing donuts in the world, his donuts are so well known, since They contain all the nutrients necessary to run a marathon without rest. In search of improving people's health, he decided, with the powerful help of his colleagues, to open this store called "The Glazed Donut."</p>
+        </div>        
+    </div>
+
+</div>
 {% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+{% endblock scripts %}

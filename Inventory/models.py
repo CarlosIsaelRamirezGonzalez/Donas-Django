@@ -4,8 +4,9 @@ from django.db import models
 class Donut(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
+    nutritional_information = models.CharField(max_length=250, null=True)
     price = models.DecimalField(max_digits=2, decimal_places=2)
-    quantity = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField() # Quantity or Stock?
     
     class Meta:
         ordering = ['price']

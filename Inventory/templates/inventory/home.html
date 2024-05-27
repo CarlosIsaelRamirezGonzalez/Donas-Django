@@ -26,7 +26,7 @@
                 </div>
                 <div class="back-face-buttons">
                     <a id="shopping-link" href="{% url 'shopping_cart:post_shopping' donut.id %}" style="display: none;"></a>
-                    <button type="button" class="buy-btn" onclick="document.getElementById('shopping-link').click();">
+                    <button type="button" class="buy-btn" onclick="redirectToPage('inventory/shoping_form/{{ donut.id }}')"
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                 </div>
@@ -44,5 +44,5 @@
 </div>
 
 <script src="{% static 'js/card_flip.js' %}"></script>
-<script src="{% static 'js/donuts_popup.js' %}"></script>
+<script src="{% static 'js/redirect.js' %}"></script>
 {% endblock content %}
