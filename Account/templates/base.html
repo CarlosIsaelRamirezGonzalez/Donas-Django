@@ -15,9 +15,10 @@
         <div class="content">
             {% if messages %}
               {% for message in messages  %}
-                  <div class="message {{ message.tags }} ">
-                      {{message}}
+                  <div class="message">
+                      {{message}} - {{message.tags}}
                   </div>
+                  <br>
               {% endfor %}
             {% endif %}
 

@@ -20,13 +20,20 @@ class SignUpView(FormView):
     def form_invalid(self, form):
         errors = form.errors.as_data()
         error_message = "The data provided is not valid."
+
+        # Collect all error messages
+        error_messages = []
+        for field, field_errors in errors.items():
+            for error in field_errors:
+                error_messages.append(f"Warning - {error.message}")
+
+        # Add all error messages to Django messages
+        for message in error_messages:
+            messages.error(self.request, message)
         
-        if 'email' in errors:
-            email_errors = errors['email']
-            error_message = email_errors[0].message
-            
-        messages.error(self.request, error_message) # Add the error message to the context
-        return self.render_to_response(self.get_context_data(form=form)) # Deploy the template with the errros
+        # Optionally, you can pass the error messages to the context
+        context = self.get_context_data(form=form, error_messages=error_messages)
+        return self.render_to_response(context)
         
 class LoginView(FormView):
     template_name = 'account/login.html'

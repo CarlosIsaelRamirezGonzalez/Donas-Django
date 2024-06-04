@@ -114,7 +114,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_URL = '/accounts/login/' # Change this later
+LOGIN_URL = '/account/login/' # Change this later
 
 
 

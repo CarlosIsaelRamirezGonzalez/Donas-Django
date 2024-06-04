@@ -29,6 +29,19 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: white;
 }
 
+.message {
+    position: absolute;
+    top: 5%;
+    margin-bottom: 1rem;
+    
+    border-radius: 2rem;
+    
+    box-sizing: border-box;
+    padding: 2rem;
+
+    background-color: #ffd9da;
+}
+
 /* end of common styles */
 
 /* index */
