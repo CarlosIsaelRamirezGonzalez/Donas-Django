@@ -19,7 +19,7 @@
         <div class="sidebar">
 
             <label for="click">
-                <img src="./img/donut-menu.png" alt="" class="menu-icon">
+                <img src="{% static 'images/donut-menu.png' %}" class="menu-icon">
             </label>
 
             <ul class="sidebar-icons-list">
@@ -58,7 +58,7 @@
                     <a href="#" class="navigation-link">Help</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="#" class="navigation-link">Log Out</a>
+                    <a href="{% url 'account:logout' %}" class="navigation-link">Log Out</a>
                 </li>
             </ul>
 
@@ -72,18 +72,21 @@
     <!-- end of navbar -->
 
     <div class="content">
+        {% if messages %}
+        {% for message in messages  %}
+            <div class="message">
+                  <button class="close-btn">&times;</button>
+                  {{message}}
+            </div>
+        {% endfor %}
+        {% endif %}
+
         {% block content %}
         {% endblock content %}
     </div>
-
-    {% if messages %}
-      {% for message in messages  %}
-          <div class="message {{ message.tags }} ">
-              {{message}}
-          </div>
-      {% endfor %}
-    {% endif %}
-
+    {% block scripts %}
+        <script src="{% static 'js/redirect.js' %}"></script>
+    {% endblock scripts %}
 </body>
 </html>
 

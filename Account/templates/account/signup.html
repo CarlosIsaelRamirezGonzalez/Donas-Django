@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'account/base.html' %}
 {% load static %}
 
 {% block title %}
@@ -8,6 +8,8 @@
 {% block content %}
   <form class="signup-form" method="post">
       {% csrf_token %}
+      
+
       <img class="signup-image" src="{% static 'images/donut-logo.jpg' %}" alt="">
 
       
@@ -31,6 +33,6 @@
           <i class="fa-solid fa-lock"></i>
       </div>
   
-      <button class="form-btn">Registrarse</button>
+      <button class="form-btn">Register</button>
   </form>
 {% endblock content %}

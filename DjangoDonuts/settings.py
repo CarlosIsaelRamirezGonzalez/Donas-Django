@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Inventory.apps.InventoryConfig',
     'ShoppingCart.apps.ShoppingcartConfig',
     'Index.apps.IndexConfig', 
+    'rangefilter'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +118,12 @@ USE_TZ = True
 
 LOGIN_URL = '/account/login/' # Change this later
 
-
+# Email server configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ladonaglaseada1@gmail.com'
+EMAIL_HOST_PASSWORD = 'grwxcvgzndlnyaub'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

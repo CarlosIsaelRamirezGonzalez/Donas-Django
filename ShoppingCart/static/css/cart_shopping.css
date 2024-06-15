@@ -1,0 +1,124 @@
+/* common styles */
+html {
+    font-size: 62.5%;   
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.content {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: white;
+}
+
+.message {
+    position: absolute;
+    top: 5%;
+    margin-bottom: 1rem;
+
+    border-radius: 1rem;
+    
+    box-sizing: border-box;
+    padding: 1.5rem;
+
+    background-color: #ffea00;
+    
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+}
+
+.close-btn {
+    position: absolute;
+    bottom: 1rem;
+    left: -.5rem;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 1rem;
+
+}
+
+/* end of common styles */
+
+/* shopping */
+.shopping-content {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-donut-image {
+    height: 40vh;
+    width: 20vw;
+}
+
+.info-donut-content {
+    height: 100vh;
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 8rem;
+}
+
+.info-donut-paragraph {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    text-align: justify;
+
+}
+
+
+.info-donut-title {
+    color: #b18486;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+}
+
+.shopping-form {
+    height: 100vh;
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: 8rem;
+
+}
+
+.shopping-form-input-textarea {
+    width: 500px;  /* Ancho predeterminado */
+    height: 200px; /* Altura predeterminada */
+}
+/* end of shopping */

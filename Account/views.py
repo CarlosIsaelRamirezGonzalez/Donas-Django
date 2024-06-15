@@ -10,7 +10,7 @@ from django.views.generic import FormView
 class SignUpView(FormView):
     template_name = 'account/signup.html'
     form_class = SignUpForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('inventory:home')
 
     def form_valid(self, form):
         user = form.save()
@@ -25,7 +25,7 @@ class SignUpView(FormView):
         error_messages = []
         for field, field_errors in errors.items():
             for error in field_errors:
-                error_messages.append(f"Warning - {error.message}")
+                error_messages.append(f"{field}: {error.message}")
 
         # Add all error messages to Django messages
         for message in error_messages:

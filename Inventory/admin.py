@@ -1,16 +1,16 @@
 from django.contrib import admin
-from rangefilter.filters import NumericRangeFilter
+from rangefilter.filters import NumericRangeFilterBuilder
 from .models import Donut
 
 
 @admin.register(Donut)
 class DonutAdmin(admin.ModelAdmin):
-    list_display = ['name', 'quantity', 'price', 'description']
+    list_display = ['name', 'quantity', 'price', 'description', 'nutritional_information']
     list_filter = (
-        ('quantity', NumericRangeFilter),
-        ('price', NumericRangeFilter),
+        ('quantity', NumericRangeFilterBuilder()),
+        ('price', NumericRangeFilterBuilder()),
     )
     search_fields = ['name', 'description']
-    ordering = ['price']
+    ordering = ['name']
 
 

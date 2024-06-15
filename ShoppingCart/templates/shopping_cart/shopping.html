@@ -1,0 +1,24 @@
+{% extends 'shopping_cart/base.html' %}
+{% load static %}
+
+{% block title %}
+  La Dona Glaseada - SignUp
+{% endblock title %}
+
+{% block content %}
+  <div class="shopping-content">
+    <div class="info-donut-content">
+        <img src="{% static 'images/dona-' %}{{ donut.name }}.png" alt="Image of {{ donut.name }}"  class="info-donut-image">
+        <h2 class="info-donut-title" >Nutritional Information:</h2>
+        <p class="info-donut-paragraph">{{donut.nutritional_information}}</p>
+    </div>
+
+    <form class="shopping-form" method="post">
+        {% csrf_token %}
+        <input type="number" class="shopping-form-input" placeholder="How many donuts do you wish?" name="{{ form.quantity.name }}">
+        <textarea class="shopping-form-input-textarea" placeholder="Do you want an ingredient to be omitted, some type of dough in particular, almond milk?" name="{{ form.suggestion.name }}"></textarea>
+        <button class="shopping-form-btn">Buy</button>
+      </form>
+  </div>
+
+{% endblock content %}
