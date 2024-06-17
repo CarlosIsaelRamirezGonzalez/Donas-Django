@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'Inventory.apps.InventoryConfig',
     'ShoppingCart.apps.ShoppingcartConfig',
     'Index.apps.IndexConfig', 
-    'rangefilter'
+    'rangefilter',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [

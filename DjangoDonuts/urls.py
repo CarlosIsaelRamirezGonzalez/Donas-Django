@@ -8,4 +8,5 @@ urlpatterns = [
     path('account/', include('Account.urls', namespace='account')),
     path('inventory/', include('Inventory.urls', namespace='inventory')),
     path('shopping_cart/', include('ShoppingCart.urls', namespace='shopping_cart')),
+    path('', include('paypal.standard.ipn.urls')),
 ]

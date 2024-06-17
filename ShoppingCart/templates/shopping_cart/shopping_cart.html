@@ -1,0 +1,38 @@
+{% extends 'shopping_cart/base.html' %}
+{% load static %}
+
+{% block title %}
+  La Dona Glaseada - Shopping Cart
+{% endblock title %}
+
+{% block content %}
+<h1>Shopping Cart</h1>
+    
+<p>Items in the shopping cart: {{ quantity_items_shopp }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total pricr</th>
+            <th>Suggestion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for donut in donuts_details %}
+            <tr>
+                <td>{{ donut.name }}</td>
+                <td>{{ donut.price }}</td>
+                <td>{{ donut.quantity }}</td>
+                <td>{{ donut.total_price }}</td>
+                <td>{{ donut.suggestion }}</td>
+                <td><button onclick="redirectToPage('account/login/')">edit</button></td>
+                <td><button onclick="redirectToPage('account/login/')">delete</button></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

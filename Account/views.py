@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -38,23 +38,25 @@ class SignUpView(FormView):
 class LoginView(FormView):
     template_name = 'account/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home')
-    
+    success_url = reverse_lazy('inventory:home')
+
     def form_valid(self, form):
-        user = authenticate(username = form.cleaned_data['username'],
-                            password = form.cleaned_data['password'],)
-        if user is not None:
+        User = get_user_model()
+        email = form.cleaned_data['email']
+        password = form.cleaned_data['password']
+        user = User.objects.get(email=email)
+        
+        if user is not None and user.check_password(password):
             login(self.request, user)
             return redirect(self.success_url)
         else:
             error_message = 'This username does not exists or te password is wrong.'
             messages.error(self.request, error_message)
             return self.render_to_response(self.get_context_data(form=form))
-    
+
     def form_invalid(self, form):
-        error_message = "The data provided is not valid."
-        
-        messages.error(self.request, error_message)
+        print(form.errors)
+        messages.error(self.request, "The data provided is not valid.")
         return self.render_to_response(self.get_context_data(form=form))
         
 @login_required
