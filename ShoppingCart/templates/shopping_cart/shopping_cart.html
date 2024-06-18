@@ -10,14 +10,16 @@
     
 <p>Items in the shopping cart: {{ quantity_items_shopp }}</p>
 
-<table>
+<table class="shopping-cart-table">
     <thead>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Total pricr</th>
+            <th>Total price</th>
             <th>Suggestion</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -28,11 +30,21 @@
                 <td>{{ donut.quantity }}</td>
                 <td>{{ donut.total_price }}</td>
                 <td>{{ donut.suggestion }}</td>
-                <td><button onclick="redirectToPage('account/login/')">edit</button></td>
-                <td><button onclick="redirectToPage('account/login/')">delete</button></td>
+                <td><button onclick="redirectToPage('edit_shopping/{{ donut.id }}')" class="edit-btn">edit</button></td>
+                <td><button onclick="redirectToPage('delete_shopping/{{ donut.id }}')" class="delete-btn">delete</button></td>
             </tr>
         {% endfor %}
+        <tr>
+            <td>Subtotal:</td>
+            <td>{{ subtotal }}</td>
+        </tr>
     </tbody>
 </table>
+<button onclick="redirectToPage('shopping_address_form/')" class="shopping-form-btn">Pay</button>
+
+<div id="paypal-button-container">
+    <p id="result-message"></p>
+      
+</div>
 
 {% endblock content %}

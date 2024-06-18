@@ -23,6 +23,7 @@ class Order(models.Model):
         
     address = models.CharField(max_length=350)
     quantity = models.PositiveIntegerField()
+    suggestion = models.CharField(max_length=450, null=True)
     status = models.CharField(max_length=2,
                               choices=Status.choices,
                               default=Status.PROCESS)
@@ -30,6 +31,7 @@ class Order(models.Model):
                              on_delete=models.CASCADE,
                              related_name='orders',
                              null=True) # user.orders
+    date_arrived = models.DateField(null=True, blank=True)
     donut = models.ForeignKey(Donut,   
                               on_delete=models.CASCADE,
                               related_name='orders') # donut.orders

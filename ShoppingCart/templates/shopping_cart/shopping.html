@@ -15,9 +15,10 @@
 
     <form class="shopping-form" method="post">
         {% csrf_token %}
-        <input type="number" class="shopping-form-input" placeholder="How many donuts do you wish?" name="{{ form.quantity.name }}">
-        <textarea class="shopping-form-input-textarea" placeholder="Do you want an ingredient to be omitted, some type of dough in particular, almond milk?" name="{{ form.suggestion.name }}"></textarea>
-        <button class="shopping-form-btn">Buy</button>
+        <h2 class="shopping-form-tittle">Please, fill the form: </h2>
+        <input type="number" class="shopping-form-input" placeholder="How many donuts do you wish?" name="{{ form.quantity.name }}" required min="1" max="100">
+        <textarea class="shopping-form-input-textarea" placeholder="Do you want an ingredient to be omitted, some type of dough in particular, almond milk?" name="{{ form.suggestion.name }}" required maxlength="450"></textarea>
+        <button class="shopping-form-btn"><i class="fa-solid fa-dollar-sign"> Buy</i></button>
       </form>
   </div>
 

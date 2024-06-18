@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Donas -> nombre, descripción, precio, cantidad
 class Donut(models.Model):
@@ -14,3 +15,18 @@ class Donut(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Profits(models.Model):
+    profit =  models.DecimalField(max_digits=999, decimal_places=2)
+    user = models.ForeignKey(User, 
+                             on_delete=models.CASCADE,
+                             related_name='profits',
+                             null=True) # user.orders
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    
+    class Meta:
+        ordering = ['user']
+    
+        
+    def __str__(self):
+        return str(self.profit) 

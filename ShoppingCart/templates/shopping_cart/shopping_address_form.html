@@ -1,0 +1,16 @@
+{% extends 'shopping_cart/base.html' %}
+{% load static %}
+
+{% block title %}
+  La Dona Glaseada - Shopping Cart Edit
+{% endblock title %}
+
+{% block content %}
+
+  <form method="post" class="form-edit">
+    {% csrf_token %}
+    <input type="text" name="{{ form.address.name }}" class="shopping-form-input" placeholder="Where do you live?">
+    <button class="shopping-form-btn" type="submit">Pay</button>
+  </form>
+
+{% endblock content %}

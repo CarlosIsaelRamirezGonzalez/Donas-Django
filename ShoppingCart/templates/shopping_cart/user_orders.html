@@ -1,0 +1,28 @@
+{% extends 'shopping_cart/base.html' %}
+
+{% block title %}
+  La Dona Glaseada - User Orders
+{% endblock title %}
+
+{% block content %}
+  <table class="shopping-cart-table">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Donut</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order  in user_orders  %}
+            <tr>
+                <td>{{ order.address  }}</td>
+                <td>{{ order.quantity  }}</td>
+                <td>{{ order.get_status_display }}</td>
+                <td>{{ order.donut  }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

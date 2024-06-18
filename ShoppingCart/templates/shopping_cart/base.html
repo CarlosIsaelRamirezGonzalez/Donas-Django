@@ -21,7 +21,10 @@
                   </div>
               {% endfor %}
             {% endif %}
+            <div class="navbar">    
 
+                <img onclick="redirectToPage('/inventory/home/')" src="{% static 'images/navbar_logo.png' %}" class="navbar-img">
+            </div>
             {% block content %}
 
             {% endblock content %}
@@ -29,6 +32,8 @@
         {% block scripts %}
         <script src="{% static "js/align_messages.js" %}"></script>
         <script src="{% static "js/delete_messages.js" %}"></script>
+        <script src="{% static "js/paypal.js" %}" type="module"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=test" data-sdk-integration-source="developer-studio"></script>
         <script>
             function redirectToPage(url) {
                 window.location.href = url;

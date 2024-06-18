@@ -46,16 +46,13 @@
             
             <ul class="navigation-list">
                 <li class="navigation-item">
-                    <a href="#" class="navigation-link">Home</a>
+                    <a href="{% url 'inventory:home' %}"  class="navigation-link">Home</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="#" class="navigation-link">Orders</a>
+                    <a  href="{% url 'shopping_cart:user_orders' %}" class="navigation-link">Orders</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="#" class="navigation-link">Settings</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="#" class="navigation-link">Help</a>
+                    <a  href="{% url 'inventory:terms_and_conditions' %}" class="navigation-link">Terms & conditions</a>
                 </li>
                 <li class="navigation-item">
                     <a href="{% url 'account:logout' %}" class="navigation-link">Log Out</a>

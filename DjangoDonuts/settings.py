@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'ShoppingCart.apps.ShoppingcartConfig',
     'Index.apps.IndexConfig', 
     'rangefilter',
+    'rest_framework',
+    'corsheaders',
+    'payments',
     'paypal.standard.ipn',
+
 ]
 
 MIDDLEWARE = [
@@ -135,3 +139,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# PayPal settings
+PAYPAL_CLIENT_ID="AdGU1nMik1pKVj2scdWCCdhwlObJXztxnCBVggIYRnVuBxIWpTrKCPTAGoysnvfTBlto6yNIlZQoo5s9"
+PAYPAL_CLIENT_SECRET="EJap5wWoVTQMGUwg8scdSIneDKgMV5DjSHhaVX3VVgXK3ao5PSss0zSD6Eq-8_jiSsKx8VNlF-fPI6oR"
+
+PAYPAL_ENVIRONMENT = 'sandbox'  # Usa 'live' para producción
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",  # or the domain where your frontend is hosted
+]
+
+APPEND_SLASH = False
+PAYMENT_HOST = 'localhost'  # O el dominio de tu sitio web, como 'example.com'

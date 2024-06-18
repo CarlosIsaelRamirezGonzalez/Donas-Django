@@ -1,0 +1,27 @@
+{% extends 'shopping_cart/base.html' %}
+{% load static %}
+
+{% block title %}
+  La Dona Glaseada - Shopping Cart Edit
+{% endblock title %}
+
+{% block content %}
+
+  <form method="post" action="{% url 'shopping_cart:shopping_cart_edit' shopping_cart_item.id %}" class="form-edit">
+    {% csrf_token %}
+    <input type="number" class="shopping-form-input" 
+            placeholder="How many donuts do you wish?" 
+          name="{{ form.quantity.name }}" 
+          value="{{ form.quantity.value }}" 
+          required min="1" max="100">
+    <textarea class="shopping-form-input-textarea" 
+              placeholder="Do you want an ingredient to be omitted, some type of dough in particular, almond milk?" 
+              name="{{ form.suggestion.name }}" 
+              required maxlength="450">{{ form.suggestion.value }}</textarea>
+    <button class="shopping-form-btn" type="submit">Update</i></button>
+    <a href="{% url 'shopping_cart:shopping_cart_buy' %}">Cancel</a>
+
+  </form>
+
+  
+{% endblock content %}
